@@ -10,7 +10,7 @@ export default async function AdminContactPage() {
     orderBy: { submittedAt: "desc" },
   });
 
-  const newCount = messages.filter((m) => m.status === "new").length;
+  const newCount = messages.filter((m: any) => m.status === "new").length;
 
   return (
     <div className="container mx-auto px-4 py-10 max-w-4xl">
