@@ -13,7 +13,7 @@ export async function markMessageAsRead(id: number) {
   await requireAuth();
   await prisma.contactSubmission.update({
     where: { id },
-    data: { status: "read" }
+    data: { status: "reviewed" }
   });
   revalidatePath("/admin/contact");
 }
