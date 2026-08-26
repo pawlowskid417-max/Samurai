@@ -38,7 +38,7 @@ export default async function NewsPage() {
       {/* Posts grid */}
       <div className="container mx-auto px-4 max-w-5xl py-16 md:py-24">
         <FadeInStagger className="grid gap-6 sm:grid-cols-2">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <StaggerItem key={post.id.toString()}>
               <Link
                 href={`/news/${post.slug}`}

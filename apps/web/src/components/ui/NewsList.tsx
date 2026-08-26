@@ -42,7 +42,7 @@ export function NewsList({ posts }: { posts: NewsPost[] }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-neutral-100">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <tr key={post.id} className="hover:bg-neutral-50/60 transition-colors">
               <td className="px-6 py-4 font-medium text-brand-950 max-w-xs">
                 <span className="line-clamp-1">{post.title}</span>

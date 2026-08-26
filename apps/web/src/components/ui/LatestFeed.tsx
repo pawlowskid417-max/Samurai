@@ -55,7 +55,7 @@ export async function LatestFeed() {
 
         {/* News cards */}
         <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <StaggerItem key={post.id.toString()}>
               <Link
                 href={`/news/${post.slug}`}

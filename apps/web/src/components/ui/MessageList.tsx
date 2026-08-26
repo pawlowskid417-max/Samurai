@@ -39,7 +39,7 @@ export function MessageList({ messages }: { messages: Message[] }) {
 
   return (
     <div className="space-y-3">
-      {messages.map((msg) => (
+      {messages.map((msg: any) => (
         <div
           key={msg.id}
           className={`rounded-2xl border p-6 transition-colors ${
