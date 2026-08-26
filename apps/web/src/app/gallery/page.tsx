@@ -56,7 +56,7 @@ export default async function GalleryPage() {
               className="w-full"
             >
               <CarouselContent className="-ml-4 md:-ml-6">
-                {galleryItems.map((item, index) => (
+                {galleryItems.map((item: any, index: number) => (
                   <CarouselItem key={item.id || index} className="pl-4 md:pl-6 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
                     <div className="p-1">
                       <div className="overflow-hidden rounded-[24px] relative aspect-[3/4] group border border-brand-700/20 shadow-lg">

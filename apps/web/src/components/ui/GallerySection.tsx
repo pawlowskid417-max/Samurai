@@ -79,7 +79,7 @@ export async function GallerySection() {
                 className="w-full"
               >
                 <CarouselContent className="-ml-4">
-                  {galleryItems.map((item, index) => (
+                  {galleryItems.map((item: any, index: number) => (
                     <CarouselItem key={item.id || index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                       <div className="p-1">
                         <div className="overflow-hidden rounded-[24px] relative aspect-[4/5] group border border-brand-700/20 shadow-lg bg-brand-950">
