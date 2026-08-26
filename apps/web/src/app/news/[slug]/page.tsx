@@ -108,7 +108,7 @@ export default async function NewsPostPage({ params }: Props) {
         {/* Article body */}
         <FadeIn delay={0.15}>
           <div className="prose prose-lg max-w-none text-neutral-700 prose-headings:text-brand-950 prose-a:text-brand-500 prose-a:no-underline hover:prose-a:underline prose-hr:border-neutral-200">
-            {post.body.split("\n").map((paragraph, idx) =>
+            {post.body.split("\n").map((paragraph: any, idx: number) =>
               paragraph.trim() ? (
                 <p key={idx} className="mb-5 leading-relaxed">
                   {paragraph}
