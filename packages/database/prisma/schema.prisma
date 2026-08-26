@@ -1,0 +1,165 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum AchievementCategory {
+  Regional
+  National
+  International
+  Other
+}
+
+enum SubmissionStatus {
+  new
+  reviewed
+  spam
+}
+
+model Media {
+  id           BigInt   @id @default(autoincrement())
+  url          String   @db.VarChar(500)
+  altText      String   @map("alt_text") @db.VarChar(255)
+  mimeType     String   @map("mime_type") @db.VarChar(100)
+  sizeBytes    Int      @map("size_bytes")
+  width        Int?
+  height       Int?
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  newsPosts        NewsPost[]
+  galleryItems     GalleryItem[]
+  achievements     Achievement[]
+  instructorBios   InstructorBio[]
+  logoFor          SiteSettings[] @relation("logo")
+  heroFor          SiteSettings[] @relation("hero")
+
+  @@map("media")
+}
+
+model NewsPost {
+  id               BigInt    @id @default(autoincrement())
+  title            String    @db.VarChar(200)
+  slug             String    @unique @db.VarChar(220)
+  excerpt          String?   @db.VarChar(500)
+  body             String
+  featuredImageId  BigInt?   @map("featured_image_id")
+  featuredImage    Media?    @relation(fields: [featuredImageId], references: [id], onDelete: SetNull)
+  publishedAt      DateTime? @map("published_at")
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @default(now()) @updatedAt @map("updated_at")
+
+  @@index([publishedAt(sort: Desc)])
+  @@map("news_posts")
+}
+
+model GalleryItem {
+  id           BigInt    @id @default(autoincrement())
+  caption      String?   @db.VarChar(300)
+  albumName    String?   @map("album_name") @db.VarChar(150)
+  eventDate    DateTime? @map("event_date") @db.Date
+  imageId      BigInt    @map("image_id")
+  image        Media     @relation(fields: [imageId], references: [id], onDelete: Restrict)
+  publishedAt  DateTime? @map("published_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+
+  @@index([publishedAt(sort: Desc)])
+  @@index([albumName])
+  @@map("gallery_items")
+}
+
+model Achievement {
+  id            BigInt               @id @default(autoincrement())
+  title         String               @db.VarChar(200)
+  slug          String               @unique @db.VarChar(220)
+  description   String?
+  category      AchievementCategory?
+  achievedAt    DateTime             @map("achieved_at") @db.Date
+  imageId       BigInt?              @map("image_id")
+  image         Media?               @relation(fields: [imageId], references: [id], onDelete: SetNull)
+  publishedAt   DateTime?            @map("published_at")
+  createdAt     DateTime             @default(now()) @map("created_at")
+
+  @@index([publishedAt(sort: Desc)])
+  @@index([category])
+  @@map("achievements")
+}
+
+model AboutUs {
+  id         Int             @id @default(1)
+  history    String?
+  philosophy String?
+  updatedAt  DateTime        @default(now()) @updatedAt @map("updated_at")
+  bios       InstructorBio[]
+
+  @@map("about_us")
+}
+
+model InstructorBio {
+  id            BigInt   @id @default(autoincrement())
+  aboutUsId     Int      @map("about_us_id")
+  aboutUs       AboutUs  @relation(fields: [aboutUsId], references: [id], onDelete: Cascade)
+  name          String   @db.VarChar(150)
+  bioText       String?  @map("bio_text")
+  photoId       BigInt?  @map("photo_id")
+  photo         Media?   @relation(fields: [photoId], references: [id], onDelete: SetNull)
+  displayOrder  Int      @default(0) @map("display_order") @db.SmallInt
+
+  @@index([aboutUsId, displayOrder])
+  @@map("instructor_bios")
+}
+
+model ContactInfo {
+  id         Int      @id @default(1)
+  address    String   @db.VarChar(300)
+  phone      String   @db.VarChar(30)
+  email      String   @db.VarChar(255)
+  hours      String?
+  mapLat     Decimal? @map("map_lat") @db.Decimal(9, 6)
+  mapLng     Decimal? @map("map_lng") @db.Decimal(9, 6)
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@map("contact_info")
+}
+
+model SiteSettings {
+  id           Int     @id @default(1)
+  dojoName     String  @map("dojo_name") @db.VarChar(150)
+  tagline      String? @db.VarChar(255)
+  logoId       BigInt? @map("logo_id")
+  logo         Media?  @relation("logo", fields: [logoId], references: [id], onDelete: SetNull)
+  heroImageId  BigInt? @map("hero_image_id")
+  heroImage    Media?  @relation("hero", fields: [heroImageId], references: [id], onDelete: SetNull)
+  socialLinks  Json?   @map("social_links")
+
+  @@map("site_settings")
+}
+
+model ContactSubmission {
+  id           BigInt           @id @default(autoincrement())
+  name         String           @db.VarChar(150)
+  email        String           @db.VarChar(255)
+  message      String
+  status       SubmissionStatus @default(new)
+  submittedAt  DateTime         @default(now()) @map("submitted_at")
+
+  @@index([status, submittedAt(sort: Desc)])
+  @@map("contact_submissions")
+}
+
+model AdminUser {
+  id            BigInt    @id @default(autoincrement())
+  email         String    @unique @db.VarChar(255)
+  passwordHash  String    @map("password_hash") @db.VarChar(255)
+  role          String    @default("admin") @db.VarChar(20)
+  isActive      Boolean   @default(true) @map("is_active")
+  lastLoginAt   DateTime? @map("last_login_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+
+  @@map("admin_users")
+}

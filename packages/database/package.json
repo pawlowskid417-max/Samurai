@@ -1,0 +1,17 @@
+{
+  "name": "database",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "types": "index.ts",
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "prisma": "^5.22.0",
+    "typescript": "^5.9.3"
+  },
+  "prisma": {
+    "seed": "npx tsx seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0"
+  }
+}
