@@ -54,41 +54,41 @@ export async function LatestFeed() {
         </div>
 
         {/* News cards */}
-        <FadeInStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <FadeInStagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {posts.map((post: any) => (
             <StaggerItem key={post.id.toString()}>
               <Link
                 href={`/news/${post.slug}`}
-                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-[0_8px_32px_rgba(59,114,232,0.12)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                className="group flex flex-col h-full rounded-xl overflow-hidden bg-white border-t-4 border-brand-500 shadow-sm hover:shadow-[0_8px_28px_rgba(59,114,232,0.13)] hover:-translate-y-1 transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
               >
-                {/* Image */}
-                <div className="w-full aspect-[4/3] overflow-hidden bg-brand-50">
+                {/* Image 16:9 */}
+                <div className="w-full aspect-[16/9] overflow-hidden bg-brand-50">
                   {post.featuredImage ? (
                     <img
                       src={post.featuredImage.url}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                      className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       loading="lazy"
                     />
                   ) : (
                     <img
                       src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=600&auto=format&fit=crop"
                       alt="Trening sztuk walki"
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                      className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       loading="lazy"
                     />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="flex flex-col flex-grow p-6">
-                  <div className="text-xs font-semibold tracking-widest text-brand-500 uppercase mb-2">
+                <div className="flex flex-col flex-grow p-4">
+                  <span className="text-[10px] font-semibold tracking-widest text-brand-500 uppercase mb-1.5">
                     Aktualność
-                  </div>
-                  <h3 className="text-lg font-bold text-brand-950 mb-2 line-clamp-2 group-hover:text-brand-700 transition-colors duration-200">
+                  </span>
+                  <h3 className="text-base font-semibold text-brand-950 mb-1.5 line-clamp-1 group-hover:text-brand-700 transition-colors duration-200">
                     {post.title}
                   </h3>
-                  <p className="text-neutral-500 text-sm mb-4 line-clamp-3 flex-grow">
+                  <p className="text-neutral-500 text-sm mb-3 line-clamp-2 flex-grow leading-relaxed">
                     {post.excerpt || post.body}
                   </p>
                   <div className="flex items-center justify-between">

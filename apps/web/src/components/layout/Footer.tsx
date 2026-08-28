@@ -5,15 +5,25 @@ export function Footer() {
 
   return (
     <footer className="mt-auto bg-brand-950 text-white">
-      {/* Kōshi (格子) decorative top border — shoji grid pattern */}
-      <div
-        aria-hidden="true"
-        className="h-px w-full"
-        style={{
-          background:
-            "repeating-linear-gradient(90deg, rgba(59,114,232,0.5) 0px, rgba(59,114,232,0.5) 1px, transparent 1px, transparent 20px)",
-        }}
-      />
+      {/* Separator-pędzel SVG zamiast prostej krawędzi */}
+      <div aria-hidden="true" className="w-full overflow-hidden">
+        <svg viewBox="0 0 1200 12" preserveAspectRatio="none" className="w-full h-3 text-brand-700/50">
+          <path
+            d="M0 6 Q 150 2 300 6 T 600 6 T 900 6 T 1200 6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            opacity="0.7"
+          />
+          <path
+            d="M0 6 Q 150 10 300 6 T 600 6 T 900 6 T 1200 6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.3"
+          />
+        </svg>
+      </div>
 
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

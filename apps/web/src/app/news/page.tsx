@@ -36,42 +36,42 @@ export default async function NewsPage() {
       </section>
 
       {/* Posts grid */}
-      <div className="container mx-auto px-4 max-w-5xl py-16 md:py-24">
-        <FadeInStagger className="grid gap-6 sm:grid-cols-2">
+      <div className="container mx-auto px-4 max-w-7xl py-16 md:py-24">
+        <FadeInStagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {posts.map((post: any) => (
             <StaggerItem key={post.id.toString()}>
               <Link
                 href={`/news/${post.slug}`}
-                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-white border border-neutral-200/80 hover:border-brand-300 hover:shadow-[0_8px_32px_rgba(59,114,232,0.12)] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                className="group flex flex-col h-full rounded-xl overflow-hidden bg-white border-t-4 border-brand-500 shadow-sm hover:shadow-[0_8px_28px_rgba(59,114,232,0.13)] hover:-translate-y-1 transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)]"
               >
-                {/* Image */}
+                {/* Image 16:9 */}
                 <div className="w-full aspect-[16/9] bg-brand-50 overflow-hidden">
                   {post.featuredImage ? (
                     <img
                       src={post.featuredImage.url}
                       alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
                       loading="lazy"
                     />
                   ) : (
                     <img
                       src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop"
                       alt="Trening sztuk walki"
-                      className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-[1.05] transition-transform duration-500"
                       loading="lazy"
                     />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <div className="text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">
+                <div className="p-4 flex flex-col flex-grow">
+                  <span className="text-[10px] font-semibold tracking-widest text-brand-500 uppercase mb-1.5">
                     Aktualność
-                  </div>
-                  <h2 className="text-xl md:text-2xl font-bold text-brand-950 mb-3 group-hover:text-brand-700 transition-colors duration-200 line-clamp-2">
+                  </span>
+                  <h2 className="text-base font-semibold text-brand-950 mb-1.5 group-hover:text-brand-700 transition-colors duration-200 line-clamp-2">
                     {post.title}
                   </h2>
-                  <p className="text-neutral-500 text-sm mb-6 line-clamp-3 flex-grow leading-relaxed">
+                  <p className="text-neutral-500 text-sm mb-3 line-clamp-2 flex-grow leading-relaxed">
                     {post.excerpt || post.body}
                   </p>
                   <div className="flex items-center justify-between mt-auto">
@@ -88,7 +88,7 @@ export default async function NewsPage() {
                         : ""}
                     </time>
                     <span className="text-xs font-semibold text-brand-500 group-hover:translate-x-1 transition-transform duration-200 inline-block">
-                      Czytaj więcej →
+                      Czytaj →
                     </span>
                   </div>
                 </div>

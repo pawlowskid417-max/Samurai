@@ -27,6 +27,7 @@
   /* ── Accent — hanko / torii red (朱色) ── */
   --color-accent:     #c0392b;
   --color-accent-light: #e8574a;
+  --color-hanko:      #b7410e; /* stonowana czerwień pieczęci — tylko małe akcenty */
 
   /* ── Neutrals — chłodne szarości ── */
   --color-neutral-50:  #f8f9fb;
@@ -104,10 +105,29 @@ body {
   @apply selection:bg-brand-200 selection:text-brand-900;
 }
 
-/* ── Japanese pattern — seigaiha (青海波) SVG pattern ──
-   Used as subtle section backgrounds via bg-seigaiha class */
+/* ── Japanese pattern — seigaiha (青海波) ──
+   Delikatny wzór fal, używany jako tło sekcji */
 .bg-seigaiha {
-  /* Pattern removed per user request */
+  background-image:
+    radial-gradient(circle at 0 0, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 28%, transparent 29%),
+    radial-gradient(circle at 20px 0, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 28%, transparent 29%);
+  background-size: 40px 20px;
+  background-position: 0 0, 20px 0;
+}
+
+/* ── Pionowy tekst — boczna etykieta ── */
+.vertical-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.3em;
+  font-size: 13px;
+  opacity: 0.5;
+  user-select: none;
+}
+
+/* ── Przycisk z uciętym rogiem — hanko style ── */
+.btn-hanko {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
 }
 
 /* ── Asanoha (麻の葉) pattern — used in news section ── */
