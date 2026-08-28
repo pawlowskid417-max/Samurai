@@ -24,7 +24,7 @@ export function HeroSection() {
       {/* Kanji watermark — 武 (bu, martial/discipline) */}
       <span
         aria-hidden="true"
-        className="absolute bottom-6 right-6 md:bottom-12 md:right-12 font-display font-bold text-[clamp(6rem,18vw,16rem)] text-white/[0.04] leading-none select-none pointer-events-none"
+        className="absolute bottom-6 right-6 md:bottom-12 md:right-12 font-display font-bold text-[clamp(6rem,18vw,16rem)] text-white/20 leading-none select-none pointer-events-none"
       >
         武
       </span>
@@ -70,21 +70,7 @@ export function HeroSection() {
           </div>
         </FadeIn>
 
-        {/* Stats row */}
-        <FadeIn delay={0.5}>
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 md:gap-12 text-white/60 text-sm">
-            {[
-              { value: "3",    label: "Sekcje: karate, judo, ju-jitsu" },
-              { value: "Wszystkie",   label: "Grupy wiekowe"  },
-              { value: "Lubań",     label: "Trenujemy lokalnie" },
-            ].map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center gap-1">
-                <span className="text-2xl font-bold text-white/90 font-display">{stat.value}</span>
-                <span className="text-xs tracking-wide uppercase">{stat.label}</span>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
+
       </div>
     </section>
   );
