@@ -54,22 +54,6 @@ export default async function NewsPage() {
 
         <div className="container mx-auto px-4 max-w-5xl relative z-10">
           <FadeIn>
-            {/* Enso decoration */}
-            <svg
-              viewBox="0 0 200 200"
-              className="w-8 h-8 text-brand-400/50 mb-4"
-              aria-hidden="true"
-            >
-              <circle
-                cx="100" cy="100" r="80"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="6"
-                strokeLinecap="round"
-                strokeDasharray="470 60"
-                transform="rotate(-100 100 100)"
-              />
-            </svg>
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-3">Aktualności</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
               Aktualności klubu
