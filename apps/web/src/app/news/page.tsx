@@ -20,10 +20,56 @@ export default async function NewsPage() {
   return (
     <div className="bg-surface">
       {/* Page hero */}
-      <section className="py-16 md:py-24 bg-brand-950 relative overflow-hidden">
+      <section className="py-14 md:py-20 bg-brand-950 relative overflow-hidden">
+
+        {/* Seigaiha wave pattern overlay — 6% opacity */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 0 0, transparent 24%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 28%, transparent 29%),
+              radial-gradient(circle at 20px 0, transparent 24%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 28%, transparent 29%)
+            `,
+            backgroundSize: "40px 20px",
+            backgroundPosition: "0 0, 20px 0",
+          }}
+        />
+
+        {/* Kanji watermark — 武 */}
+        <span
+          aria-hidden="true"
+          className="absolute -bottom-4 right-4 md:right-12 font-display font-bold text-[clamp(6rem,18vw,14rem)] text-white/[0.05] leading-none select-none pointer-events-none"
+        >
+          武
+        </span>
+
+        {/* Vertical kanji label — desktop only */}
+        <span
+          aria-hidden="true"
+          className="vertical-label absolute left-6 top-1/2 -translate-y-1/2 text-white/20 font-display hidden lg:block"
+        >
+          空手 · 柔道 · 柔術
+        </span>
 
         <div className="container mx-auto px-4 max-w-5xl relative z-10">
           <FadeIn>
+            {/* Enso decoration */}
+            <svg
+              viewBox="0 0 200 200"
+              className="w-8 h-8 text-brand-400/50 mb-4"
+              aria-hidden="true"
+            >
+              <circle
+                cx="100" cy="100" r="80"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="6"
+                strokeLinecap="round"
+                strokeDasharray="470 60"
+                transform="rotate(-100 100 100)"
+              />
+            </svg>
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-3">Aktualności</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
               Aktualności klubu
@@ -34,6 +80,7 @@ export default async function NewsPage() {
           </FadeIn>
         </div>
       </section>
+
 
       {/* Posts grid */}
       <div className="container mx-auto px-4 max-w-7xl py-16 md:py-24">
