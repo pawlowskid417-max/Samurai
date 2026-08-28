@@ -6,9 +6,9 @@ export function HeroSection() {
   return (
     <section
       id="main-content"
-      className="relative overflow-hidden min-h-[100dvh] flex items-center py-16 md:py-24 lg:py-28 snap-start"
+      className="relative overflow-hidden min-h-[100dvh] flex items-center py-24 md:py-32 lg:py-40 snap-start"
     >
-      {/* Grainient WebGL background */}
+      {/* Grainient WebGL background (falls back to CSS gradient on mobile/reduced-motion) */}
       <div className="absolute inset-0 z-0">
         <Grainient
           color1="#5c8ef0"
@@ -20,58 +20,17 @@ export function HeroSection() {
         />
       </div>
 
-      {/* Seigaiha wave pattern overlay — 6% opacity */}
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 0 0, transparent 24%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 28%, transparent 29%),
-            radial-gradient(circle at 20px 0, transparent 24%, rgba(255,255,255,0.06) 25%, rgba(255,255,255,0.06) 28%, transparent 29%)
-          `,
-          backgroundSize: "40px 20px",
-          backgroundPosition: "0 0, 20px 0",
-        }}
-      />
-
       {/* Kanji watermark — 武 (bu, martial/discipline) */}
       <span
         aria-hidden="true"
-        className="absolute bottom-6 right-6 md:bottom-12 md:right-12 font-display font-bold text-[clamp(6rem,18vw,16rem)] text-white/20 leading-none select-none pointer-events-none z-[1]"
+        className="absolute bottom-6 right-6 md:bottom-12 md:right-12 font-display font-bold text-[clamp(6rem,18vw,16rem)] text-white/20 leading-none select-none pointer-events-none"
       >
         武
       </span>
 
-      {/* Vertical kanji label — left side, desktop only */}
-      <span
-        aria-hidden="true"
-        className="vertical-label absolute left-6 top-1/2 -translate-y-1/2 text-white/30 font-display z-[1] hidden lg:block"
-      >
-        空手 · 柔道 · 柔術
-      </span>
-
       <div className="container relative z-10 mx-auto px-4 max-w-6xl text-center flex flex-col items-center">
 
-        {/* Enso circle decoration */}
-        <FadeIn delay={0.05}>
-          <svg
-            viewBox="0 0 200 200"
-            className="w-12 h-12 text-white/25 mb-4 mx-auto"
-            aria-hidden="true"
-          >
-            <circle
-              cx="100" cy="100" r="80"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="6"
-              strokeLinecap="round"
-              strokeDasharray="470 60"
-              transform="rotate(-100 100 100)"
-            />
-          </svg>
-        </FadeIn>
-
-        {/* H1 */}
+        {/* H1 — mix of Noto Serif JP accent and Inter weight */}
         <FadeIn delay={0.15}>
           <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl md:text-7xl lg:text-[5.5rem] max-w-4xl mb-6 leading-[1.05]">
             Poznaj{" "}
