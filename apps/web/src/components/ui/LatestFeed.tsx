@@ -35,10 +35,10 @@ export async function LatestFeed() {
                 型
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-brand-950 tracking-tight">
-                Latest news
+                Najnowsze aktualności
               </h2>
               <p className="text-neutral-500 mt-2 max-w-md text-base">
-                Stay up to date with belt gradings, seminars, and announcements.
+                Bądź na bieżąco z egzaminami na stopnie, zgrupowaniami i ogłoszeniami klubu.
               </p>
             </div>
           </FadeIn>
@@ -47,7 +47,7 @@ export async function LatestFeed() {
               href="/news"
               className="group inline-flex items-center gap-2 text-brand-500 font-semibold hover:text-brand-700 transition-colors duration-200"
             >
-              View all news
+              Zobacz wszystkie
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
           </FadeIn>
@@ -73,7 +73,7 @@ export async function LatestFeed() {
                   ) : (
                     <img
                       src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=600&auto=format&fit=crop"
-                      alt="Martial arts training"
+                      alt="Trening sztuk walki"
                       className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
                       loading="lazy"
                     />
@@ -83,7 +83,7 @@ export async function LatestFeed() {
                 {/* Content */}
                 <div className="flex flex-col flex-grow p-6">
                   <div className="text-xs font-semibold tracking-widest text-brand-500 uppercase mb-2">
-                    News
+                    Aktualność
                   </div>
                   <h3 className="text-lg font-bold text-brand-950 mb-2 line-clamp-2 group-hover:text-brand-700 transition-colors duration-200">
                     {post.title}
@@ -97,7 +97,7 @@ export async function LatestFeed() {
                       className="text-xs text-neutral-400"
                     >
                       {post.publishedAt
-                        ? new Date(post.publishedAt).toLocaleDateString(undefined, {
+                        ? new Date(post.publishedAt).toLocaleDateString("pl-PL", {
                             year: "numeric",
                             month: "short",
                             day: "numeric",
@@ -105,7 +105,7 @@ export async function LatestFeed() {
                         : ""}
                     </time>
                     <span className="text-xs font-semibold text-brand-500 group-hover:translate-x-1 transition-transform duration-200 inline-block">
-                      Read →
+                      Czytaj →
                     </span>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ export async function LatestFeed() {
 
           {posts.length === 0 && (
             <p className="col-span-full text-center py-12 text-neutral-400">
-              No recent updates. Check back soon.
+              Brak najnowszych aktualności. Zaglądaj częściej!
             </p>
           )}
         </FadeInStagger>

@@ -3,10 +3,10 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const ADMIN_NAV = [
-  { href: "/admin",         label: "Dashboard" },
-  { href: "/admin/news",    label: "News"      },
-  { href: "/admin/about",   label: "About"     },
-  { href: "/admin/contact", label: "Messages"  },
+  { href: "/admin",         label: "Pulpit" },
+  { href: "/admin/news",    label: "Aktualności" },
+  { href: "/admin/about",   label: "O klubie" },
+  { href: "/admin/contact", label: "Wiadomości" },
 ];
 
 export default async function AdminLayout({
@@ -25,7 +25,7 @@ export default async function AdminLayout({
             <div className="flex items-center gap-8">
               {/* Logo */}
               <Link href="/admin" className="flex items-center gap-1.5 font-semibold text-lg text-brand-950">
-                <span className="text-brand-600">Dojo</span>
+                <span className="text-brand-600">Samuraj</span>
                 <span>Admin</span>
                 <span aria-hidden="true" className="ml-0.5 w-[6px] h-[6px] rounded-full bg-accent flex-shrink-0" />
               </Link>
@@ -51,7 +51,7 @@ export default async function AdminLayout({
                 className="text-neutral-500 hover:text-brand-600 transition-colors text-xs font-medium"
                 target="_blank"
               >
-                View site ↗
+                Zobacz stronę ↗
               </Link>
               <form
                 action={async () => {
@@ -63,7 +63,7 @@ export default async function AdminLayout({
                   type="submit"
                   className="text-neutral-500 hover:text-red-500 transition-colors font-medium text-sm"
                 >
-                  Log out
+                  Wyloguj się
                 </button>
               </form>
             </div>

@@ -16,28 +16,28 @@ export function LoginForm() {
     <form action={formAction} className="space-y-5">
       <div>
         <label className="block text-sm font-medium text-neutral-700 mb-1.5" htmlFor="email">
-          Email
+          E-mail
         </label>
         <input
           className={inputClass}
           id="email"
           type="email"
           name="email"
-          placeholder="admin@dojoacademy.com"
+          placeholder="trener@samuraj-luban.pl"
           required
         />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-neutral-700 mb-1.5" htmlFor="password">
-          Password
+          Hasło
         </label>
         <input
           className={inputClass}
           id="password"
           type="password"
           name="password"
-          placeholder="Enter your password"
+          placeholder="Wprowadź hasło"
           required
           minLength={6}
         />
@@ -48,7 +48,7 @@ export function LoginForm() {
         className="mt-2 w-full rounded-full bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_2px_10px_rgba(59,114,232,0.3)] hover:bg-brand-600 active:scale-[0.98] transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500"
         disabled={isPending}
       >
-        {isPending ? "Signing in…" : "Sign in"}
+        {isPending ? "Logowanie…" : "Zaloguj się"}
       </button>
 
       {errorMessage && (

@@ -2,7 +2,7 @@ import prisma from "database";
 import { AboutForms } from "@/components/ui/AboutForms";
 
 export const metadata = {
-  title: "About Us Settings - Admin Dashboard",
+  title: "O klubie - Ustawienia - Panel admina",
 };
 
 export default async function AdminAboutPage() {
@@ -12,9 +12,9 @@ export default async function AdminAboutPage() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-4xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-brand-950">About Us settings</h1>
+        <h1 className="text-2xl font-bold text-brand-950">Ustawienia: O klubie</h1>
         <p className="text-neutral-500 text-sm mt-0.5">
-          Manage the Dojo's public information, history, and contact details.
+          Zarządzaj historią klubu i publicznymi danymi kontaktowymi.
         </p>
       </div>
 

@@ -21,9 +21,9 @@ export default function ErrorPage({
           <AlertTriangle className="w-8 h-8" />
         </div>
 
-        <h1 className="text-2xl font-bold text-brand-950 mb-3">Something went wrong</h1>
+        <h1 className="text-2xl font-bold text-brand-950 mb-3">Coś poszło nie tak</h1>
         <p className="text-neutral-500 mb-10 leading-relaxed">
-          An unexpected error has occurred. Our team has been notified.
+          Wystąpił nieoczekiwany błąd. Nasz zespół został o tym poinformowany.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -31,13 +31,13 @@ export default function ErrorPage({
             onClick={() => reset()}
             className="px-6 py-3 bg-brand-500 text-white font-semibold rounded-full hover:bg-brand-600 active:scale-[0.97] transition-all duration-200 w-full sm:w-auto shadow-[0_2px_12px_rgba(59,114,232,0.3)]"
           >
-            Try again
+            Spróbuj ponownie
           </button>
           <button
             onClick={() => { window.location.href = "/"; }}
             className="px-6 py-3 border border-neutral-200 text-brand-700 font-semibold rounded-full hover:bg-brand-50 hover:border-brand-200 transition-all duration-200 w-full sm:w-auto"
           >
-            Return home
+            Wróć na stronę główną
           </button>
         </div>
       </div>

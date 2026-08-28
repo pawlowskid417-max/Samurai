@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
-  { href: "/news",    label: "News"     },
-  { href: "/gallery", label: "Gallery"  },
-  { href: "/about",   label: "About Us" },
+  { href: "/news",    label: "Aktualności" },
+  { href: "/gallery", label: "Galeria"     },
+  { href: "/about",   label: "O klubie"    },
 ];
 
 export function Navbar() {
@@ -37,7 +37,7 @@ export function Navbar() {
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-brand-500 focus:text-white focus:rounded-lg"
       >
-        Skip to content
+        Przejdź do treści
       </a>
 
       <header
@@ -56,12 +56,12 @@ export function Navbar() {
             }`}
           >
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-1.5 group" aria-label="Dojo Academy — go home">
+            <Link href="/" className="flex items-center gap-1.5 group" aria-label="Samuraj Lubań — strona główna">
               <span className="font-display text-lg font-semibold tracking-tight text-brand-950 group-hover:text-brand-700 transition-colors duration-200">
-                Dojo
+                Samuraj
               </span>
               <span className="font-display text-lg font-semibold tracking-tight text-brand-600 group-hover:text-brand-500 transition-colors duration-200">
-                Academy
+                Lubań
               </span>
               {/* Hanko — red seal accent (印) */}
               <span
@@ -97,7 +97,7 @@ export function Navbar() {
                 href="/contact"
                 className="ml-2 px-5 py-2 text-sm font-semibold text-white bg-brand-500 rounded-full hover:bg-brand-600 active:scale-[0.97] transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] shadow-[0_2px_8px_rgba(59,114,232,0.35)] hover:shadow-[0_4px_16px_rgba(59,114,232,0.45)]"
               >
-                Join Now
+                Zapisz się
               </Link>
             </nav>
 
@@ -161,7 +161,7 @@ export function Navbar() {
                 href="/contact"
                 className="block w-full text-center px-4 py-3 text-base font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition-all"
               >
-                Join Now
+                Zapisz się
               </Link>
             </div>
           </nav>

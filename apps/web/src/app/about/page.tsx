@@ -1,13 +1,22 @@
 import { Metadata } from "next";
 import { FadeIn } from "@/components/ui/FadeIn";
+import prisma from "database";
 
 export const metadata: Metadata = {
-  title: "About Us - Dojo Academy",
+  title: "O klubie - Samuraj Lubań",
   description:
-    "Learn about the history, philosophy, and values of Dojo Academy — a premier martial arts school built on discipline, respect, and continuous growth.",
+    "Poznaj historię, filozofię i wartości klubu Samuraj Lubań...",
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const aboutUs = await prisma.aboutUs.findUnique({
+    where: { id: 1 }
+  });
+
+  const historyText = aboutUs?.history || "Klub Samuraj Lubań powstał z przekonania, że dyscyplina kształtuje charakter. Od lat uczymy tradycyjnych sztuk walki — karate, judo i ju-jitsu — dbając o to, by każdy trening odbywał się w atmosferze skupienia i wzajemnego szacunku. Nasze zajęcia są dostosowane do wszystkich poziomów zaawansowania — od pierwszych kroków na macie po starty w zawodach ogólnopolskich.\n\nTo, co zaczęło się jako niewielka grupa treningowa w Lubaniu, z czasem przerodziło się w prężnie działający klub, w którym setki zawodniczek i zawodników odkryły nie tylko techniki walki, ale też sposób na życie oparty na wytrwałości i szacunku.";
+
+  const philosophyText = aboutUs?.philosophy || "Wierzymy w zasadę kaizen — ciągłego doskonalenia się. Trening to nie tylko rozwój fizyczny, ale też hart ducha, szacunek i pokora. Każdy ukłon przed wejściem na matę przypomina, że wchodzimy tam, by się uczyć, a schodzimy z niej trochę lepsi niż wcześniej.";
+
   return (
     <div className="bg-surface">
       {/* Page hero */}
@@ -17,13 +26,13 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 max-w-4xl relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-4">
-              About us
+              O klubie
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight mb-4">
-              The Way of <span className="font-display italic text-brand-200">Dojo Academy</span>
+              Droga <span className="font-display italic text-brand-200">Samuraj Lubań</span>
             </h1>
             <p className="text-brand-300/70 text-lg max-w-2xl">
-              Rooted in tradition. Driven by purpose. Built for every stage of your martial arts journey.
+              Zakorzenieni w tradycji. Napędzani pasją. Dla każdego etapu Twojej przygody ze sztukami walki.
             </p>
           </FadeIn>
         </div>
@@ -57,21 +66,13 @@ export default function AboutPage() {
                     id="history-heading"
                     className="text-2xl md:text-3xl font-bold text-brand-950"
                   >
-                    Our history
+                    Nasza historia
                   </h2>
                 </div>
                 <div className="h-px w-12 bg-brand-200 mb-6" />
-                <p className="text-neutral-600 leading-relaxed text-lg">
-                  Founded with the belief that discipline shapes character, Dojo Academy has been
-                  teaching traditional martial arts for over a decade. Our facility is designed to
-                  foster a focused and respectful environment for practitioners of all levels — from
-                  complete beginners to seasoned competitors.
-                </p>
-                <p className="text-neutral-600 leading-relaxed text-lg mt-4">
-                  What began as a small community class has grown into a thriving school where
-                  hundreds of students have discovered not just fighting techniques, but a way of
-                  life.
-                </p>
+                <div className="text-neutral-600 leading-relaxed text-lg whitespace-pre-wrap space-y-4">
+                  {historyText}
+                </div>
               </div>
             </div>
           </section>
@@ -105,15 +106,13 @@ export default function AboutPage() {
                     id="philosophy-heading"
                     className="text-2xl md:text-3xl font-bold text-brand-950"
                   >
-                    Our philosophy
+                    Nasza filozofia
                   </h2>
                 </div>
                 <div className="h-px w-12 bg-brand-200 mb-6" />
-                <p className="text-neutral-600 leading-relaxed text-lg">
-                  We believe in kaizen — continuous improvement. Training is not just about physical
-                  strength, but mental fortitude, respect, and humility. Every bow before stepping
-                  onto the mat is a reminder that we enter to learn, and we leave to grow.
-                </p>
+                <div className="text-neutral-600 leading-relaxed text-lg whitespace-pre-wrap">
+                  {philosophyText}
+                </div>
               </div>
             </div>
           </section>
@@ -123,13 +122,13 @@ export default function AboutPage() {
         <FadeIn>
           <section aria-labelledby="values-heading">
             <h2 id="values-heading" className="text-2xl md:text-3xl font-bold text-brand-950 mb-10">
-              Core values
+              Nasze wartości
             </h2>
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { kanji: "礼", label: "Rei",       en: "Respect",    desc: "Respect for instructors, fellow students, and the art itself." },
-                { kanji: "誠", label: "Makoto",    en: "Sincerity",  desc: "Genuine effort in every practice, every day." },
-                { kanji: "道", label: "Dō",        en: "The Way",    desc: "A lifelong path of learning, not just a martial skill." },
+                { kanji: "礼", label: "Rei",       en: "Szacunek",    desc: "Szacunek dla trenerów, kolegów z maty oraz samej sztuki walki." },
+                { kanji: "誠", label: "Makoto",    en: "Szczerość",  desc: "Prawdziwe zaangażowanie na każdym treningu, każdego dnia." },
+                { kanji: "道", label: "Dō",        en: "Droga",    desc: "Sztuki walki jako droga rozwoju na całe życie, nie tylko umiejętność." },
               ].map((val) => (
                 <div
                   key={val.kanji}

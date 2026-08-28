@@ -11,7 +11,7 @@ export async function submitContactForm(formData: FormData) {
 
   // Basic validation
   if (!name || !email || !message) {
-    return { error: "All required fields must be filled." };
+    return { error: "Wszystkie wymagane pola muszą być wypełnione." };
   }
 
   // Honeypot spam protection
@@ -33,6 +33,6 @@ export async function submitContactForm(formData: FormData) {
     return { success: true };
   } catch (error) {
     console.error("Failed to submit contact form:", error);
-    return { error: "An unexpected error occurred. Please try again later." };
+    return { error: "Wystąpił nieoczekiwany błąd. Spróbuj ponownie później." };
   }
 }

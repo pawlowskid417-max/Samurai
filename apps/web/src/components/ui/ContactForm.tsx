@@ -22,7 +22,7 @@ export function ContactForm() {
       } else if (result?.success) {
         setStatus({
           type: "success",
-          message: "Thank you for reaching out. We'll get back to you soon.",
+          message: "Dziękujemy za wiadomość. Odezwiemy się wkrótce.",
         });
         (e.target as HTMLFormElement).reset();
       }
@@ -43,7 +43,7 @@ export function ContactForm() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h3 className="text-xl font-bold text-brand-950 mb-2">Message sent</h3>
+          <h3 className="text-xl font-bold text-brand-950 mb-2">Wiadomość wysłana</h3>
           <p className="text-neutral-500 leading-relaxed">{status.message}</p>
         </div>
       ) : (
@@ -56,43 +56,43 @@ export function ContactForm() {
 
           {/* Honeypot */}
           <div className="hidden" aria-hidden="true">
-            <label htmlFor="bot_field">Don&apos;t fill this out if you&apos;re human:</label>
+            <label htmlFor="bot_field">Nie wypełniaj tego pola, jeśli jesteś człowiekiem:</label>
             <input type="text" id="bot_field" name="bot_field" tabIndex={-1} autoComplete="off" />
           </div>
 
           <div>
-            <label htmlFor="name" className={labelClass}>Name</label>
+            <label htmlFor="name" className={labelClass}>Imię i nazwisko</label>
             <input
               type="text"
               id="name"
               name="name"
               required
               className={inputClass}
-              placeholder="Your name"
+              placeholder="Twoje imię i nazwisko"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className={labelClass}>Email</label>
+            <label htmlFor="email" className={labelClass}>E-mail</label>
             <input
               type="email"
               id="email"
               name="email"
               required
               className={inputClass}
-              placeholder="you@example.com"
+              placeholder="ty@przyklad.pl"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className={labelClass}>Message</label>
+            <label htmlFor="message" className={labelClass}>Wiadomość</label>
             <textarea
               id="message"
               name="message"
               required
               rows={5}
               className={`${inputClass} resize-none`}
-              placeholder="How can we help you?"
+              placeholder="W czym możemy pomóc?"
             />
           </div>
 
@@ -101,7 +101,7 @@ export function ContactForm() {
             disabled={isPending}
             className="w-full rounded-full bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white shadow-[0_2px_10px_rgba(59,114,232,0.3)] hover:bg-brand-600 hover:shadow-[0_4px_16px_rgba(59,114,232,0.4)] active:scale-[0.98] transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isPending ? "Sending…" : "Send message"}
+            {isPending ? "Wysyłanie…" : "Wyślij wiadomość"}
           </button>
         </form>
       )}

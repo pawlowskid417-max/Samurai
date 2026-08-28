@@ -19,7 +19,7 @@ async function main() {
     const media = await prisma.media.create({
       data: {
         url,
-        altText: `Gallery Image ${i + 1}`,
+        altText: `Zdjęcie z galerii ${i + 1}`,
         mimeType: "image/jpeg",
         sizeBytes: 150000,
       }
@@ -29,8 +29,8 @@ async function main() {
     await prisma.galleryItem.create({
       data: {
         imageId: media.id,
-        caption: `Martial Arts action shot ${i + 1}`,
-        albumName: "Training Sessions",
+        caption: `Zdjęcie treningowe ${i + 1}`,
+        albumName: "Treningi",
         eventDate: new Date(),
         publishedAt: new Date()
       }

@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import prisma from 'database';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://dojoacademy.com';
+  const baseUrl = 'https://samuraj-luban.pl';
 
   const newsPosts = await prisma.newsPost.findMany({
     where: { publishedAt: { not: null } },

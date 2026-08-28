@@ -4,8 +4,8 @@ import { Metadata } from "next";
 import { FadeIn, FadeInStagger, StaggerItem } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "News - Dojo Academy",
-  description: "Latest news, events, and updates from the Dojo.",
+  title: "Aktualności - Samuraj Lubań",
+  description: "Najnowsze wiadomości, wydarzenia i wyniki zawodników klubu Samuraj Lubań.",
 };
 
 export default async function NewsPage() {
@@ -24,12 +24,12 @@ export default async function NewsPage() {
 
         <div className="container mx-auto px-4 max-w-5xl relative z-10">
           <FadeIn>
-            <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-3">News</p>
+            <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-3">Aktualności</p>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              News &amp; updates
+              Aktualności klubu
             </h1>
             <p className="text-brand-300/70 mt-3 text-lg max-w-xl">
-              Latest announcements, events, and insights from our Dojo.
+              Najnowsze ogłoszenia, wydarzenia i wyniki zawodników naszego klubu.
             </p>
           </FadeIn>
         </div>
@@ -56,7 +56,7 @@ export default async function NewsPage() {
                   ) : (
                     <img
                       src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=800&auto=format&fit=crop"
-                      alt="Martial arts training"
+                      alt="Trening sztuk walki"
                       className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-700"
                       loading="lazy"
                     />
@@ -66,7 +66,7 @@ export default async function NewsPage() {
                 {/* Content */}
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
                   <div className="text-xs font-semibold tracking-widest text-brand-500 uppercase mb-3">
-                    News
+                    Aktualność
                   </div>
                   <h2 className="text-xl md:text-2xl font-bold text-brand-950 mb-3 group-hover:text-brand-700 transition-colors duration-200 line-clamp-2">
                     {post.title}
@@ -80,7 +80,7 @@ export default async function NewsPage() {
                       className="text-xs text-neutral-400 font-medium"
                     >
                       {post.publishedAt
-                        ? new Date(post.publishedAt).toLocaleDateString(undefined, {
+                        ? new Date(post.publishedAt).toLocaleDateString("pl-PL", {
                             year: "numeric",
                             month: "short",
                             day: "numeric",
@@ -88,7 +88,7 @@ export default async function NewsPage() {
                         : ""}
                     </time>
                     <span className="text-xs font-semibold text-brand-500 group-hover:translate-x-1 transition-transform duration-200 inline-block">
-                      Read more →
+                      Czytaj więcej →
                     </span>
                   </div>
                 </div>
@@ -98,7 +98,7 @@ export default async function NewsPage() {
 
           {posts.length === 0 && (
             <div className="col-span-full py-16 text-center border border-neutral-200 rounded-3xl">
-              <p className="text-neutral-400 text-lg">No news posts published yet.</p>
+              <p className="text-neutral-400 text-lg">Nie opublikowano jeszcze żadnych aktualności.</p>
             </div>
           )}
         </FadeInStagger>

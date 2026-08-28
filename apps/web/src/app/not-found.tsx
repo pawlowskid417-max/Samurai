@@ -15,9 +15,9 @@ export default function NotFound() {
 
         {/* 404 */}
         <h1 className="text-6xl font-black text-brand-950 -mt-4 mb-2">404</h1>
-        <h2 className="text-xl font-semibold text-brand-800 mb-4">Page not found</h2>
+        <h2 className="text-xl font-semibold text-brand-800 mb-4">Nie znaleziono strony</h2>
         <p className="text-neutral-500 mb-10 leading-relaxed">
-          We couldn't find the page you're looking for. It may have been moved, or you may have mistyped the URL.
+          Nie mogliśmy znaleźć szukanej strony. Mogła zostać przeniesiona albo w adresie wkradła się literówka.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -25,13 +25,13 @@ export default function NotFound() {
             href="/"
             className="px-6 py-3 bg-brand-500 text-white font-semibold rounded-full hover:bg-brand-600 active:scale-[0.97] transition-all duration-200 w-full sm:w-auto shadow-[0_2px_12px_rgba(59,114,232,0.3)]"
           >
-            Return home
+            Wróć na stronę główną
           </Link>
           <Link
             href="/contact"
             className="px-6 py-3 border border-neutral-200 text-brand-700 font-semibold rounded-full hover:bg-brand-50 hover:border-brand-200 transition-all duration-200 w-full sm:w-auto group inline-flex items-center justify-center gap-2"
           >
-            Contact us
+            Skontaktuj się z nami
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
         </div>

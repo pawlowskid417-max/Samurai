@@ -8,8 +8,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 export const metadata = {
-  title: "Gallery - Dojo Academy",
-  description: "View photos from our training sessions, seminars, and belt grading events.",
+  title: "Galeria - Samuraj Lubań",
+  description: "Zobacz zdjęcia z naszych treningów, zgrupowań i egzaminów na stopnie.",
 };
 
 export default async function GalleryPage() {
@@ -25,13 +25,13 @@ export default async function GalleryPage() {
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <FadeIn>
             <p className="text-xs font-semibold tracking-widest uppercase text-brand-400 mb-3">
-              Gallery
+              Galeria
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
-              Our gallery
+              Nasza galeria
             </h1>
             <p className="text-brand-300/70 mt-3 text-lg max-w-xl">
-              Photos from our recent training sessions, competitions, and Dojo events.
+              Zdjęcia z naszych ostatnich treningów, zawodów i wydarzeń klubowych.
             </p>
           </FadeIn>
         </div>
@@ -43,7 +43,7 @@ export default async function GalleryPage() {
           <FadeIn>
             <div className="py-24 text-center border border-neutral-200 rounded-3xl">
               <p className="font-display text-5xl text-brand-200 mb-4" aria-hidden="true">型</p>
-              <p className="text-neutral-500 text-lg">No gallery items available yet.</p>
+              <p className="text-neutral-500 text-lg">Galeria jest jeszcze pusta — zdjęcia pojawią się wkrótce.</p>
             </div>
           </FadeIn>
         ) : (
@@ -62,12 +62,12 @@ export default async function GalleryPage() {
                       <div className="overflow-hidden rounded-[24px] relative aspect-[3/4] group border border-brand-700/20 shadow-lg">
                         <img
                           src={item.image.url}
-                          alt={item.caption || item.albumName || "Dojo Academy"}
+                          alt={item.caption || item.albumName || "Samuraj Lubań"}
                           className="object-cover w-full h-full transition-transform duration-700 ease-out group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                           <span className="text-white font-semibold text-lg drop-shadow-md translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                            {item.caption || item.albumName || "Dojo Academy"}
+                            {item.caption || item.albumName || "Samuraj Lubań"}
                           </span>
                         </div>
                       </div>

@@ -3,27 +3,27 @@ import prisma from "database";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard - Dojo Academy",
+  title: "Pulpit trenera - Samuraj Lubań",
 };
 
 const CARDS = [
   {
-    title: "News & updates",
-    desc: "Manage news posts, announcements, and articles shown on the public feed.",
+    title: "Aktualności",
+    desc: "Zarządzaj postami, ogłoszeniami i artykułami na stronie głównej.",
     href: "/admin/news",
-    cta: "Manage news",
+    cta: "Zarządzaj wpisami",
   },
   {
-    title: "Contact messages",
-    desc: "Review and respond to messages submitted through the contact form.",
+    title: "Wiadomości",
+    desc: "Przeglądaj zapytania wysłane przez formularz kontaktowy.",
     href: "/admin/contact",
-    cta: "View messages",
+    cta: "Wyświetl wiadomości",
   },
   {
-    title: "About us",
-    desc: "Edit the Dojo's history, philosophy, and contact details shown publicly.",
+    title: "O klubie",
+    desc: "Edytuj historię, wartości i dane kontaktowe klubu.",
     href: "/admin/about",
-    cta: "Edit information",
+    cta: "Edytuj informacje",
   },
 ];
 
@@ -34,19 +34,19 @@ export default async function AdminDashboardPage() {
   });
 
   const badges: Record<string, React.ReactNode> = {
-    "News & updates": (
+    "Aktualności": (
       <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-100 text-brand-700">
-        {newsCount} total
+        Łącznie {newsCount}
       </span>
     ),
-    "Contact messages":
+    "Wiadomości":
       unreadMessagesCount > 0 ? (
         <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-red-50 text-red-600 border border-red-100">
-          {unreadMessagesCount} new
+          {unreadMessagesCount} nowe
         </span>
       ) : (
         <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-green-50 text-green-600 border border-green-100">
-          All read
+          Wszystkie przeczytane
         </span>
       ),
   };
@@ -54,8 +54,8 @@ export default async function AdminDashboardPage() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-5xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-brand-950">Dashboard</h1>
-        <p className="text-neutral-500 text-sm mt-1">Manage your Dojo Academy content.</p>
+        <h1 className="text-2xl font-bold text-brand-950">Pulpit trenera</h1>
+        <p className="text-neutral-500 text-sm mt-1">Zarządzaj treściami klubu Samuraj Lubań.</p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">

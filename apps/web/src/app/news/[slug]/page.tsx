@@ -15,13 +15,13 @@ export async function generateMetadata({ params }: Props) {
   });
 
   if (!post) {
-    return { title: "News Not Found - Dojo Academy" };
+    return { title: "Nie znaleziono aktualności - Samuraj Lubań" };
   }
 
   const description = post.excerpt || post.body.substring(0, 160) + "...";
   const imageUrl = post.featuredImage
-    ? `https://dojoacademy.com${post.featuredImage.url}`
-    : "https://dojoacademy.com/og-image.jpg";
+    ? `https://samuraj-luban.pl${post.featuredImage.url}`
+    : "https://samuraj-luban.pl/og-image.jpg";
 
   return {
     title: post.title,
@@ -64,7 +64,7 @@ export default async function NewsPostPage({ params }: Props) {
             className="inline-flex items-center gap-1.5 text-sm font-medium text-brand-500 hover:text-brand-700 transition-colors duration-200 mb-10"
           >
             <span aria-hidden="true">←</span>
-            Back to news
+            Wróć do aktualności
           </Link>
         </FadeIn>
 
@@ -72,14 +72,14 @@ export default async function NewsPostPage({ params }: Props) {
         <FadeIn delay={0.05}>
           <header className="mb-10">
             <div className="text-xs font-semibold tracking-widest text-brand-500 uppercase mb-4">
-              News
+              Aktualność
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-brand-950 mb-4 leading-tight">
               {post.title}
             </h1>
             <div className="flex items-center gap-3 text-neutral-400 text-sm">
               <time dateTime={post.publishedAt.toISOString()}>
-                {new Date(post.publishedAt).toLocaleDateString(undefined, {
+                {new Date(post.publishedAt).toLocaleDateString("pl-PL", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -87,7 +87,7 @@ export default async function NewsPostPage({ params }: Props) {
               </time>
               {/* Thin divider */}
               <span className="h-4 w-px bg-neutral-200" />
-              <span>Dojo Academy</span>
+              <span>Samuraj Lubań</span>
             </div>
           </header>
         </FadeIn>
@@ -126,7 +126,7 @@ export default async function NewsPostPage({ params }: Props) {
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-500 hover:text-brand-700 transition-colors"
             >
               <span aria-hidden="true">←</span>
-              More news
+              Więcej aktualności
             </Link>
           </div>
         </FadeIn>

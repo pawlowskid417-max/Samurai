@@ -20,13 +20,13 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-1.5 mb-3">
-              <span className="font-display text-xl font-semibold tracking-tight text-white">Dojo</span>
-              <span className="font-display text-xl font-semibold tracking-tight text-brand-300">Academy</span>
+              <span className="font-display text-xl font-semibold tracking-tight text-white">Samuraj</span>
+              <span className="font-display text-xl font-semibold tracking-tight text-brand-300">Lubań</span>
               {/* Hanko dot */}
               <span aria-hidden="true" className="ml-0.5 w-[7px] h-[7px] rounded-full bg-accent flex-shrink-0 mt-px" />
             </div>
             <p className="text-brand-300/70 text-sm max-w-xs leading-relaxed">
-              Premier martial arts training. Building discipline, strength, and respect since 2014.
+              Klub sportowy Samuraj Lubań. Karate, judo i ju-jitsu — trening dyscypliny, siły i szacunku dla dzieci, młodzieży i dorosłych.
             </p>
             {/* Decorative kanji */}
             <p
@@ -40,13 +40,13 @@ export function Footer() {
           {/* Links */}
           <nav aria-label="Footer navigation" className="flex flex-col sm:flex-row gap-8">
             <div>
-              <p className="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-3">Explore</p>
+              <p className="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-3">Nawigacja</p>
               <ul className="space-y-2">
                 {[
-                  { href: "/",        label: "Home"    },
-                  { href: "/about",   label: "About"   },
-                  { href: "/news",    label: "News"    },
-                  { href: "/gallery", label: "Gallery" },
+                  { href: "/",        label: "Strona główna" },
+                  { href: "/about",   label: "O klubie"      },
+                  { href: "/news",    label: "Aktualności"   },
+                  { href: "/gallery", label: "Galeria"       },
                 ].map((link) => (
                   <li key={link.href}>
                     <Link
@@ -61,11 +61,11 @@ export function Footer() {
             </div>
 
             <div>
-              <p className="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-3">Contact</p>
+              <p className="text-brand-400 text-xs font-semibold uppercase tracking-widest mb-3">Kontakt</p>
               <ul className="space-y-2">
                 {[
-                  { href: "/contact", label: "Get in touch" },
-                  { href: "/privacy", label: "Privacy policy" },
+                  { href: "/contact", label: "Skontaktuj się" },
+                  { href: "/privacy", label: "Polityka prywatności" },
                 ].map((link) => (
                   <li key={link.href}>
                     <Link
@@ -83,7 +83,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-brand-800/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-brand-400/60 text-xs">
-          <p>© {year} Dojo Academy. All rights reserved.</p>
+          <p>© {year} Samuraj Lubań. Wszelkie prawa zastrzeżone.</p>
           <p className="font-display text-brand-700/60">道</p>
         </div>
       </div>
